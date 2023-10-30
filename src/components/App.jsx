@@ -5,9 +5,9 @@ import { Routes, Route } from "react-router-dom";
 
 
 export const App = () => {
-  const state = {
-    trendingFilms: []
-  }
+  // const state = {
+  //   trendingFilms: []
+  // }
 
   return (
     <div
