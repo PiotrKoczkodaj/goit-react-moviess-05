@@ -1,6 +1,6 @@
 
 import { Navigation } from "pages/Navigation/Navigation";
-// import { HomePage } from "pages/HomePage/HomePage";
+import { HomePage } from "pages/HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
 
 
@@ -20,7 +20,8 @@ export const App = () => {
       }}
     >
       <Routes>
-        <Route path="/" element={<Navigation />}>  
+        <Route path="/" element={<Navigation />}> 
+          <Route index element={<HomePage/> } />
         </Route> 
       </Routes>
     

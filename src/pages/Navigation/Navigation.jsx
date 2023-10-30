@@ -6,7 +6,7 @@ export const Navigation = () => {
         <div>
             <Link to="/">Home</Link>
             <Link to="movies">Movies</Link>
-            <Outlet/>
+        <Outlet/>
         </div>
     )
 }
