@@ -1,4 +1,4 @@
-import { api } from "api";
+
 import { Navigation } from "pages/Navigation/Navigation";
 import { HomePage } from "pages/HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
