@@ -3,8 +3,7 @@ import { Navigation } from "components/Navigation/Navigation";
 import { HomePage } from "pages/HomePage/HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
 import { MovieDetailPage } from "pages/HomePage/MovieDetailPage/MovieDetailPage";
-
-
+import { useParams } from "react-router-dom";
 export const App = () => {
   
 
