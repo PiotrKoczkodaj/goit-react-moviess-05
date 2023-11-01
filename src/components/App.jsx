@@ -3,7 +3,7 @@ import { Navigation } from "components/Navigation/Navigation";
 import { HomePage } from "pages/HomePage/HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
 import { MovieDetailPage } from "pages/HomePage/MovieDetailPage/MovieDetailPage";
-import { useParams } from "react-router-dom";
+import { Cast } from "./Cast/Cast";
 export const App = () => {
   
 
@@ -21,7 +21,10 @@ export const App = () => {
         <Route path="/" element={<Navigation />}> 
           <Route index element={<HomePage />} />
           <Route path="/movies" element={<MoviePage />} />
-          <Route path="/movies/:movieId" element={<MovieDetailPage/> } />
+          <Route path="/movies/:movieId" element={<MovieDetailPage />}>
+            <Route path="cast" element={<Cast/> } />
+
+          </Route>
         </Route> 
         
         

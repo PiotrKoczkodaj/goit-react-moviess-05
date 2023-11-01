@@ -1,27 +1,22 @@
-import { useEffect, useState } from "react"
-import { fetchMovieDetails } from "utils/fetchMovieDetails"
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { fetchMovieDetails } from 'utils/fetchMovieDetails';
+import { Link, Outlet } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export const MovieDetailPage = () => {
-
-    const { movieId } = useParams();
-    
-    const [details, setDetails] = useState({});
-     
-    useEffect(() => {
-        fetchMovieDetails(movieId).then(resp => {
-            setDetails({ ...resp.data });
-            return details
-           
-        });  
-        
-}, []);
-console.log(details)
-    return (
-        <>
-      <div >
-        <img alt={`${details.title} poster`}
+  const { movieId } = useParams();
+  const [details, setDetails] = useState({});
+  useEffect(() => {
+    fetchMovieDetails(movieId).then(resp => {
+      setDetails({ ...resp.data });
+      return details;
+    });
+  }, []);
+  return (
+    <>
+      <div>
+        <img
+          alt={`${details.title} poster`}
           src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
           width={200}
           height={400}
@@ -34,21 +29,21 @@ console.log(details)
           <h6>Genres</h6>
           <p>nie wiem nie</p>
         </ul>
-          </div>
-          
+      </div>
+
       <div>
         <p>Additional information</p>
-              <ul>
-                  <Link to="cast"><li>Cast</li></Link>
-                  <Link to="reviews"><li>Reviews</li></Link> 
-              </ul>
+        <ul>
+          <Link to="cast">
+            <li>Cast</li>
+          </Link>
+          <Link to="reviews">
+            <li>Reviews</li>
+                  </Link>
+                  <Outlet/>
+        </ul>
       </div>
-      
-      <div>
-        
-      
-        
-      </div>
+      <div></div>
     </>
-    )
-}
+  );
+};
