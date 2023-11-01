@@ -1,11 +1,11 @@
 import { MoviePage } from "pages/HomePage/MoviePages/MoviePage";
 import { Navigation } from "components/Navigation/Navigation";
-import { HomePage } from "pages/HomePage/HomePage";
+import { HomePage } from "pages/HomePage/HomePage/HomePage";
 import { Routes, Route } from "react-router-dom";
+import { MovieDetailPage } from "pages/HomePage/MovieDetailPage/MovieDetailPage";
 
 
 export const App = () => {
-  
   
 
   return (
@@ -21,8 +21,11 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Navigation />}> 
           <Route index element={<HomePage />} />
-          <Route path="movies" element={<MoviePage/> } />
+          <Route path="/movies" element={<MoviePage />} />
+          <Route path="/movies/:movieId" element={<MovieDetailPage/> } />
         </Route> 
+        
+        
       </Routes>
     
     </div>
