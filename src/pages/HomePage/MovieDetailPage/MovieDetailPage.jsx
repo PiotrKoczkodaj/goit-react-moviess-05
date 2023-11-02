@@ -4,14 +4,17 @@ import { Link, Outlet } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 export const MovieDetailPage = () => {
-  const { movieId } = useParams();
-  const [details, setDetails] = useState({});
+
+    const { movieId } = useParams();
+    const [details, setDetails] = useState({});
+    
   useEffect(() => {
     fetchMovieDetails(movieId).then(resp => {
       setDetails({ ...resp.data });
       return details;
     });
-  }, []);
+  }, [details,movieId]);
+    
   return (
     <>
       <div>
