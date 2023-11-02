@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReviews } from 'utils/fetchReviews';
 
@@ -10,7 +10,7 @@ export const Reviews = () => {
     fetchReviews(movieId).then(resp => {
       setReview([...resp.data.results]);
     });
-  }, []);
+  }, [movieId]);
 
   console.log(review);
 
