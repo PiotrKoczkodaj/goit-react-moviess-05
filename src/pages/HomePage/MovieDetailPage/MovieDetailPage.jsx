@@ -1,22 +1,26 @@
 import { useEffect, useState } from 'react';
 import { fetchMovieDetails } from 'utils/fetchMovieDetails';
-import { Link, Outlet } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link, Outlet } from 'react-router-dom';
 
 export const MovieDetailPage = () => {
+  const { movieId } = useParams();
+  const [details, setDetails] = useState({});
+  const navigate = useNavigate();
 
-    const { movieId } = useParams();
-    const [details, setDetails] = useState({});
-    
+  const handleClick = () => {
+    navigate('/');
+  };
+
   useEffect(() => {
     fetchMovieDetails(movieId).then(resp => {
       setDetails({ ...resp.data });
       return details;
     });
-  }, [details,movieId]);
-    
+  }, [details, movieId]);
+
   return (
     <>
+      <button onClick={handleClick}>Go back</button>
       <div>
         <img
           alt={`${details.title} poster`}
@@ -42,8 +46,8 @@ export const MovieDetailPage = () => {
           </Link>
           <Link to="reviews">
             <li>Reviews</li>
-                  </Link>
-                  <Outlet/>
+          </Link>
+          <Outlet />
         </ul>
       </div>
       <div></div>
