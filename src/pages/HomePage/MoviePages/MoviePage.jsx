@@ -19,7 +19,7 @@ const [query, setQuery] = useState('');
              setMovies([...resp.data.results]);
        }); 
         
-    },[movies])
+    },[query])
          
     
   
