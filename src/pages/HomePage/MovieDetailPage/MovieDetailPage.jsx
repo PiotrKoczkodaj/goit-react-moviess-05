@@ -16,6 +16,7 @@ export const MovieDetailPage = () => {
       setDetails({ ...resp.data });
       return details;
     });
+  
   }, [details, movieId]);
 
   return (
