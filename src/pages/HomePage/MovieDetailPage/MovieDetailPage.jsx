@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 export const MovieDetailPage = () => {
-  const { movieId } = useParams();
+  const { movieId} = useParams();
   const [details, setDetails] = useState({});
   const navigate = useNavigate();
   const location = useLocation();

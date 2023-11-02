@@ -1,20 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { fetchMovieByName } from 'utils/fetchMovieByName';
 
 export const MoviePage = () => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
+    const [query, setQuery] = useState('');
 
   const handleSubmit = e => {
-    e.preventDefault();
+      e.preventDefault();
+      setQuery(e.target[0].value)
     navigate(`?query=${e.target[0].value}`);
 
-    fetchMovieByName(e.target[0].value).then(resp => {
-      setMovies([...resp.data.results]);
-    });
     };
     
+    useEffect(() => {
+         fetchMovieByName(query).then(resp => {
+      setMovies([...resp.data.results]);
+    });
+    },[])
 
   return (
       <>
@@ -26,7 +30,7 @@ export const MoviePage = () => {
       <ul>
         {movies.map(movie => (
           <li key={movie.id}>
-            <Link to={`${movie.id}`} state={{from:'/movies'}}>{movie.title}</Link>
+            <Link to={`${movie.id}`} state={{from:`/movies?query=${query}`}}>{movie.title}</Link>
           </li>
         ))}
       </ul>
