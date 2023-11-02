@@ -5,7 +5,7 @@ import { fetchMovieByName } from 'utils/fetchMovieByName';
 export const MoviePage = () => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
-    const [query, setQuery] = useState('');
+const [query, setQuery] = useState('');
 
   const handleSubmit = e => {
       e.preventDefault();
@@ -15,11 +15,14 @@ export const MoviePage = () => {
     };
     
     useEffect(() => {
-         fetchMovieByName(query).then(resp => {
-      setMovies([...resp.data.results]);
-    });
-    },[])
-
+       fetchMovieByName(query).then(resp => {
+             setMovies([...resp.data.results]);
+       }); 
+        
+    },[movies])
+         
+    
+  
   return (
       <>
          
