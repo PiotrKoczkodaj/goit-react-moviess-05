@@ -11,7 +11,7 @@ export const Cast = () => {
             setCast([...resp.data.cast])
            
          })
-    },[])
+    },[movieId])
     console.log(cast)
     return (
         <>
