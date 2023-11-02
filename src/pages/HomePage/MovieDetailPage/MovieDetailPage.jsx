@@ -1,14 +1,21 @@
 import { useEffect, useState } from 'react';
 import { fetchMovieDetails } from 'utils/fetchMovieDetails';
-import { useParams, useNavigate, Link, Outlet } from 'react-router-dom';
+import {
+  useParams,
+  useNavigate,
+  Link,
+  Outlet,
+  useLocation,
+} from 'react-router-dom';
 
 export const MovieDetailPage = () => {
   const { movieId } = useParams();
   const [details, setDetails] = useState({});
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = () => {
-    navigate('/');
+    navigate(`${location.state.from}`);
   };
 
   useEffect(() => {
@@ -16,7 +23,6 @@ export const MovieDetailPage = () => {
       setDetails({ ...resp.data });
       return details;
     });
-  
   }, [details, movieId]);
 
   return (
