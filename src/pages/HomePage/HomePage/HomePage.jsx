@@ -2,7 +2,7 @@ import { api } from 'utils/api';
 import { useEffect, useState } from 'react';
 import { Link} from 'react-router-dom';
 
-export const HomePage = () => {
+const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   
@@ -23,3 +23,5 @@ export const HomePage = () => {
     </div>
   );
 };
+
+export default HomePage;

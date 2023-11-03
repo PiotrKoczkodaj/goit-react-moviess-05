@@ -7,9 +7,11 @@ export const Navigation = () => {
         <div>
             <Link to="/">Home</Link>
             <Link to="movies">Movies</Link>
+            
             <Suspense fallback={<div>Loading...</div>}>
-                <Outlet />
-                </Suspense>
+        <Outlet />
+      </Suspense>    
         </div>
     )
 }
+

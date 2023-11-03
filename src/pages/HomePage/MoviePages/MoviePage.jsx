@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { fetchMovieByName } from 'utils/fetchMovieByName';
 
-export const MoviePage = () => {
+ const MoviePage = () => {
   const navigate = useNavigate();
   const [movies, setMovies] = useState([]);
 const [query, setQuery] = useState('');
@@ -40,3 +40,5 @@ const [query, setQuery] = useState('');
     </>
   );
 };
+
+export default MoviePage;

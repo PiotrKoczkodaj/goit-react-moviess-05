@@ -8,7 +8,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 
-export const MovieDetailPage = () => {
+ const MovieDetailPage = () => {
   const { movieId} = useParams();
   const [details, setDetails] = useState({});
   const navigate = useNavigate();
@@ -61,3 +61,5 @@ export const MovieDetailPage = () => {
     </>
   );
 };
+
+export default MovieDetailPage;
