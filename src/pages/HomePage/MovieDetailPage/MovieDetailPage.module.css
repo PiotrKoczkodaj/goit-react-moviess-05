@@ -1,0 +1,25 @@
+.button{
+    border: 0px;
+        border-radius: 11px;
+        height: 23px;
+        margin-left: 3px;
+        background-color: #b5dbda;
+        width: 7%;
+        margin-bottom: 15px;
+}
+button:hover {
+    cursor: pointer;
+}
+.mainInfo{
+    
+        font-size: 25px;
+            margin-top: 0px;
+            margin-left: 15px;
+}
+.mainInfoContainer{
+    display: flex;
+  
+}
+.additionalInfoContainer{
+    font-size: 16px;
+}

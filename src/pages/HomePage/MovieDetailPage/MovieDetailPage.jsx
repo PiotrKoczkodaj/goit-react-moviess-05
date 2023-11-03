@@ -7,10 +7,12 @@ import {
   Outlet,
   useLocation,
 } from 'react-router-dom';
+import styles from './MovieDetailPage.module.css'
 
  const MovieDetailPage = () => {
   const { movieId} = useParams();
-  const [details, setDetails] = useState({});
+   const [details, setDetails] = useState({});
+   
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -18,34 +20,36 @@ import {
     navigate(`${location.state.from}`);
   };
 
-  useEffect(() => {
+   useEffect(() => {
+    
     fetchMovieDetails(movieId).then(resp => {
       setDetails({ ...resp.data });
       return details;
     });
-  }, [details, movieId]);
+     
+  },[]);
 
   return (
     <>
-      <button onClick={handleClick}>Go back</button>
-      <div>
+      <button className={styles.button} onClick={handleClick}>&#60;-- Go back</button>
+      <div className={styles.mainInfoContainer}>
         <img
           alt={`${details.title} poster`}
           src={`https://image.tmdb.org/t/p/w500/${details.poster_path}`}
-          width={200}
-          height={400}
+          width={300}
+          height={450}
         />
-        <ul>
+        <div className={styles.mainInfo}>
           <h4>{details.title}</h4>
           <p>User score: {details.vote_average}</p>
           <h5>Overview</h5>
           <p>{details.overview}</p>
           <h6>Genres</h6>
-          <p>nie wiem nie</p>
-        </ul>
+         
+        </div>
       </div>
 
-      <div>
+      <div className={styles.additionalInfoContainer}>
         <p>Additional information</p>
         <ul>
           <Link to="cast">
