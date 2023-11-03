@@ -1,18 +1,20 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Navigation } from 'components/Navigation/Navigation';
-import { ErrorPage } from 'pages/HomePage/ErrorPage/ErrorPage';
+import { Navigation } from './Navigation/Navigation';
 
-const MoviePage = lazy(() => import("../pages/HomePage/MoviePages/MoviePage"))
- const HomePage = lazy(() => import("../pages/HomePage/HomePage/HomePage"));
- const MovieDetailPage = lazy(() => import("../pages/HomePage/MovieDetailPage/MovieDetailPage"));
- const Cast = lazy(() => import("./Cast/Cast"))
- const Reviews = lazy(()=>import("./Reviews/Reviews"))
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage/HomePage'));
+const MoviePage = lazy(() => import('../pages/HomePage/MoviePages/MoviePage'));
+import { ErrorPage } from '../pages/HomePage/ErrorPage/ErrorPage';
+const MovieDetailPage = lazy(() => import('../pages/HomePage/MovieDetailPage/MovieDetailPage'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 
 export const App = () => {
+  
   return (
-    <div
+<div
       style={{
         height: '100vh',
         justifyContent: 'center',
@@ -21,7 +23,7 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      <Routes>
+       <Routes>
          <Route path="/" element={<Navigation />}>
           <Route index element={<HomePage />} /> 
           <Route path="/movies" element={<MoviePage />} />
@@ -33,5 +35,8 @@ export const App = () => {
         <Route path="*" element={<ErrorPage/> } /> 
       </Routes>
     </div>
-  );
+  
+  )
+    
 };
+
