@@ -1,0 +1,15 @@
+.links {
+    color:black;
+    text-decoration: none;
+}
+.linksActive{
+    color: grey;
+    text-decoration: none;
+}
+
+.navigate {
+    display: flex;
+    justify-content: space-evenly;
+        box-shadow: grey 1px 0px 4px;
+        border-bottom: black 1px solid;
+}

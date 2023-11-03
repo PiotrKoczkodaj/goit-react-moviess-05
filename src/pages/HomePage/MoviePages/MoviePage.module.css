@@ -1,0 +1,18 @@
+.input{
+    border-radius: 10px;
+    width: 20%;
+    border: 2px solid rgb(106 95 95);
+}
+.button{
+    border: 0px;
+    border-radius: 11px;
+    background-color: #9f9f9f;
+    height: 23px;
+    margin-left: 3px;
+}
+.list
+{
+    text-decoration: none;
+        font-size: 22px;
+        list-style-type: none;
+}

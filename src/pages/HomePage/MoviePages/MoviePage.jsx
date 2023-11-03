@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { fetchMovieByName } from 'utils/fetchMovieByName';
+import styles from './MoviePage.module.css';
 
  const MoviePage = () => {
   const navigate = useNavigate();
@@ -27,10 +28,10 @@ const [query, setQuery] = useState('');
       <>
          
       <form onSubmit={handleSubmit}>
-        <input type="text" />
-        <button type="submit">Search</button>
+        <input className={styles.input} type="text" />
+        <button className={styles.button }type="submit">Search</button>
       </form>
-      <ul>
+      <ul className={styles.list}>
         {movies.map(movie => (
           <li key={movie.id}>
             <Link to={`${movie.id}`} state={{from:`/movies?query=${query}`}}>{movie.title}</Link>
