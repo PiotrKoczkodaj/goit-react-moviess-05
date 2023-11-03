@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom"
+import { Suspense } from "react";
 
 export const Navigation = () => {
     
@@ -6,7 +7,9 @@ export const Navigation = () => {
         <div>
             <Link to="/">Home</Link>
             <Link to="movies">Movies</Link>
-        <Outlet/>
+            <Suspense fallback={<div>Loading...</div>}>
+                <Outlet />
+                </Suspense>
         </div>
     )
 }
