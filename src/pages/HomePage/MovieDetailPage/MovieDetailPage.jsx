@@ -9,26 +9,28 @@ import {
 } from 'react-router-dom';
 import styles from './MovieDetailPage.module.css'
 
- const MovieDetailPage = () => {
-  const { movieId} = useParams();
-   const [details, setDetails] = useState({});
+const MovieDetailPage = () => {
    
+  const { movieId} = useParams();
+  const [details, setDetails] = useState({});
+  const [genres,setGenres] =useState([])
   const navigate = useNavigate();
   const location = useLocation();
+  const data = fetchMovieDetails(movieId);
 
   const handleClick = () => {
     navigate(`${location.state.from}`);
   };
-
-   useEffect(() => {
-    
-    fetchMovieDetails(movieId).then(resp => {
+  
+  useEffect(() => {
+  
+    data.then(resp => {
       setDetails({ ...resp.data });
-      return details;
     });
-     
-  },[details,movieId]);
-
+   
+  },[]);
+   
+   console.log(details)
   return (
     <>
       <button className={styles.button} onClick={handleClick}>&#60;-- Go back</button>
@@ -44,9 +46,8 @@ import styles from './MovieDetailPage.module.css'
           <p>User score: {details.vote_average}</p>
           <h5>Overview</h5>
           <p>{details.overview}</p>
-          <h6>Genres</h6>
-         
-        </div>
+          <h6>Genres</h6>    
+       </div>
       </div>
 
       <div className={styles.additionalInfoContainer}>
