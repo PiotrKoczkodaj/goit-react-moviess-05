@@ -13,7 +13,6 @@ const MovieDetailPage = () => {
    
   const { movieId} = useParams();
   const [details, setDetails] = useState({});
-  const [genres,setGenres] =useState([])
   const navigate = useNavigate();
   const location = useLocation();
   const data = fetchMovieDetails(movieId);
