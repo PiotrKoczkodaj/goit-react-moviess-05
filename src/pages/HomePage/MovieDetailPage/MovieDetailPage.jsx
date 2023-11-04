@@ -27,7 +27,7 @@ import styles from './MovieDetailPage.module.css'
       return details;
     });
      
-  },[]);
+  },[details,movieId]);
 
   return (
     <>
