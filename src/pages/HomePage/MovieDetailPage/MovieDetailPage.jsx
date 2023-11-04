@@ -15,7 +15,7 @@ const MovieDetailPage = () => {
   const [details, setDetails] = useState({});
   const navigate = useNavigate();
   const location = useLocation();
-  const data = fetchMovieDetails(movieId);
+  
 
   const handleClick = () => {
     navigate(`${location.state.from}`);
@@ -23,13 +23,13 @@ const MovieDetailPage = () => {
   
   useEffect(() => {
   
-    data.then(resp => {
+    fetchMovieDetails(movieId).then(resp => {
       setDetails({ ...resp.data });
     });
    
-  },[]);
+  },[movieId]);
    
-   console.log(details)
+
   return (
     <>
       <button className={styles.button} onClick={handleClick}>&#60;-- Go back</button>

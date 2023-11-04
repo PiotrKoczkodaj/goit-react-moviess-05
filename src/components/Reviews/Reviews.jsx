@@ -12,7 +12,6 @@ import { fetchReviews } from 'utils/fetchReviews';
     });
   }, [movieId]);
 
-  console.log(review);
 
   return (
     <>
